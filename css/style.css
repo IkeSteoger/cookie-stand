@@ -1,0 +1,16 @@
+table {
+    background-color: lightblue;
+    color: darkred;
+}
+  
+th {
+    border: thin solid black;
+}
+
+td {
+    border: thin solid grey;
+}
+
+td:first-child{
+    border: thin solid black;
+}
