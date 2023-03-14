@@ -1,2 +1,3 @@
-# cookie-stand
-201d98 Class06 Lab
+# Cookie Stand
+
+## 201d98 Class06 Lab
