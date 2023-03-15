@@ -1,6 +1,7 @@
 `use strict`;
 
 const allStores = []
+const allStoresCookies = 0
 const tableBodyEl = document.getElementById('table-values')
 const tableHeadEl = document.getElementById('table-head')
 const tableFootEl = document.getElementById('table-foot')
@@ -15,11 +16,13 @@ function Locations(name, minCust, maxCust, avgCookie){
     this.hourlyCust = [];
     this.hourlyCookie = [];
     this.totalCookies = [];
+    allStores.push(this);
 }
 
 Locations.prototype.getRNGcust = function(minCust, maxCust) {
     for(i = 0; i < hours.length; i++){        
         this.hourlyCust.push((Math.round(Math.random() * (this.maxCust - this.minCust)) + this.minCust))
+        
     }
 }
 
@@ -71,13 +74,22 @@ totalsRow = function(){
     const footData = document.createElement('td');
     footData.textContent = "Totals";
     tableFoot.appendChild(footData);
-    for(i = 0; i < hours.length; i++){
-        const footData = document.createElement('td');
-        footData.textcontent = "#";
-        tableFoot.appendChild(footData);
+    let h = 0;
+    let grandTotal = 0;
+    while (h < hours.length){
+        let hourlyTotal = 0;
+        for(i = 0; i < allStores.length; i++){
+        hourlyTotal += allStores[i].hourlyCookie[h];
+        grandTotal += allStores[i].hourlyCookie[h];
+        
+    }
+    const hourTotal = document.createElement('td');
+    hourTotal.textContent = hourlyTotal;
+    tableFoot.appendChild(hourTotal);
+    h++;
     }
     const totalTotal = document.createElement('td');
-    totalTotal.textcontent = "#";
+    totalTotal.textContent = grandTotal;
     tableFoot.appendChild(totalTotal);
 }
 
@@ -85,31 +97,26 @@ let seattleStore = new Locations("Seattle", 23, 65, 6.3);
 seattleStore.getRNGcust();
 seattleStore.getHourlyCook();
 seattleStore.getTotalCookie();
-allStores.push(seattleStore);
 
 let tokyoStore = new Locations("Tokyo", 3, 24, 1.2);
 tokyoStore.getRNGcust();
 tokyoStore.getHourlyCook();
 tokyoStore.getTotalCookie();
-allStores.push(tokyoStore);
 
 let dubaiStore = new Locations("Dubai", 11, 38, 3.7);
 dubaiStore.getRNGcust();
 dubaiStore.getHourlyCook();
 dubaiStore.getTotalCookie();
-allStores.push(dubaiStore);
 
 let parisStore = new Locations("Paris", 20, 38, 3.7);
 parisStore.getRNGcust();
 parisStore.getHourlyCook();
 parisStore.getTotalCookie();
-allStores.push(parisStore);
 
 let limaStore = new Locations("Lima", 2, 16, 4.6);
 limaStore.getRNGcust();
 limaStore.getHourlyCook();
 limaStore.getTotalCookie();
-allStores.push(limaStore);
 
 console.log(allStores);
 hourlyRow()
