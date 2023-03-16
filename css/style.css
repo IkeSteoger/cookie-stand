@@ -51,3 +51,12 @@ td {
 td:first-child{
     border: thin solid black;
 }
+  
+input:invalid:required {
+    background: pink;
+}
+  
+input:valid {
+    border: 2px solid black;
+    background: lightgreen;
+}

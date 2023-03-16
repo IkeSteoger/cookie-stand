@@ -69,6 +69,8 @@ hourlyRow = function(){
 }
 
 totalsRow = function(){
+    const footer = document.getElementById('table-foot');
+    footer.innerHTML = '';
     const tableFoot = document.createElement('tr');
     tableFootEl.appendChild(tableFoot);
     const footData = document.createElement('td');
@@ -93,34 +95,43 @@ totalsRow = function(){
     tableFoot.appendChild(totalTotal);
 }
 
+runMath = function(store){
+    store.getRNGcust();
+    store.getHourlyCook();
+    store.getTotalCookie();    
+}
+
+let submitEl = document.getElementById('submit-button')
+let formEl = document.getElementById('store-form')
+
+formEl.addEventListener('submit', function(event) {
+    event.preventDefault();
+    console.log('Store added');
+    let { store_city, store_min, store_max, store_avg } = event.target;
+    let newStore = new Locations(
+        store_city.value,
+        parseInt(store_min.value),
+        parseInt(store_max.value),
+        parseInt(store_avg.value),
+    )
+    runMath(newStore)
+    newStore.drawRow();
+    console.log(allStores)
+    totalsRow();
+});
+
 let seattleStore = new Locations("Seattle", 23, 65, 6.3);
-seattleStore.getRNGcust();
-seattleStore.getHourlyCook();
-seattleStore.getTotalCookie();
-
 let tokyoStore = new Locations("Tokyo", 3, 24, 1.2);
-tokyoStore.getRNGcust();
-tokyoStore.getHourlyCook();
-tokyoStore.getTotalCookie();
-
 let dubaiStore = new Locations("Dubai", 11, 38, 3.7);
-dubaiStore.getRNGcust();
-dubaiStore.getHourlyCook();
-dubaiStore.getTotalCookie();
-
 let parisStore = new Locations("Paris", 20, 38, 3.7);
-parisStore.getRNGcust();
-parisStore.getHourlyCook();
-parisStore.getTotalCookie();
-
 let limaStore = new Locations("Lima", 2, 16, 4.6);
-limaStore.getRNGcust();
-limaStore.getHourlyCook();
-limaStore.getTotalCookie();
 
+for(let i = 0; i < allStores.length; i++){
+    runMath(allStores[i])
+}
 console.log(allStores);
-hourlyRow()
-totalsRow()
 for (let i = 0; i < allStores.length; i++){
     allStores[i].drawRow();
-}
+};
+hourlyRow();
+totalsRow();
