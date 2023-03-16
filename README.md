@@ -1,6 +1,8 @@
 # Cookie Stand
 
-## 201d98 Class06 Lab
+## 201d98 Lab
+
+This was a lab done for CodeFellows class 201d98
 
 ### Lighthouse Reports
 
