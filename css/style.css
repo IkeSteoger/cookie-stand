@@ -8,7 +8,24 @@ header {
 
 h2 {
     text-align: center;
+    font-family: 'Kanit', sans-serif;
+    color: darkgreen;
 }
+
+h1 {
+    font-family: 'Kanit', sans-serif;
+    color: darkgreen;
+    border-bottom: thin solid darkgreen;
+    margin-left: 30%;
+    margin-right: 30%;
+}
+
+h3 {
+    font-family: 'Kanit', sans-serif;
+    color: darkgreen;
+    border-bottom: thin solid darkgreen;
+}
+
 
 #chinookImg {
     display: block;
@@ -38,18 +55,42 @@ footer {
 table {
     background-color: lightblue;
     color: darkred;
+    font-family: Helvetica, sans-serif;
+    text-align: center;
 }
   
 th {
     border: thin solid black;
+    height: 60px;
+    width: 60px;
+    background-color: lightgreen;
 }
 
 td {
     border: thin solid grey;
+    height: 60px;
+    width: 60px;
+}
+
+table td:last-child {
+    border: thin solid black;
+    background-color: lightgreen;
+}
+
+tfoot {
+    border: thin solid black;
+    background-color: lightgreen;
+}
+
+tfoot td {
+    border: thin solid black;
 }
 
 td:first-child{
     border: thin solid black;
+    background-color: lightgreen;
+    font-weight: bold;
+    
 }
   
 input:invalid:required {
@@ -67,6 +108,8 @@ fieldset {
     align-items: center;
     border: none;
     margin: 30px;
+    font-family: 'Kanit', sans-serif;
+    color: darkgreen;
 }
 
 #fieldsettitle {
@@ -74,4 +117,17 @@ fieldset {
     font-weight: bold;
     font-size: 26px;
     border-bottom: solid black;
+    font-family: 'Kanit', sans-serif;
+    color: darkgreen;
+}
+
+p {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: darkblue;
+    font-weight: 549;
+}
+
+a {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
 }
